@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Dataset Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            width: 50%;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #response {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Boston Dataset Features</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+        <label for="CRIM">CRIM:</label>
+        <input type="number" id="CRIM" name="CRIM" step="any" value="0.00632">
+
+        <label for="ZN">ZN:</label>
+        <input type="number" id="ZN" name="ZN" step="any" value="18.0">
+
+        <label for="INDUS">INDUS:</label>
+        <input type="number" id="INDUS" name="INDUS" step="any" value="2.31">
+
+        <label for="CHAS">CHAS:</label>
+        <input type="number" id="CHAS" name="CHAS" step="1" min="0" max="1" value="0">
+
+        <label for="NOX">NOX:</label>
+        <input type="number" id="NOX" name="NOX" step="any" value="0.538">
+
+        <label for="RM">RM:</label>
+        <input type="number" id="RM" name="RM" step="any" value="6.575">
+
+        <label for="AGE">AGE:</label>
+        <input type="number" id="AGE" name="AGE" step="1" value="60">
+
+        <label for="DIS">DIS:</label>
+        <input type="number" id="DIS" name="DIS" step="any" value="4.0900">
+
+        <label for="RAD">RAD:</label>
+        <input type="number" id="RAD" name="RAD" step="1" value="1">
+
+        <label for="TAX">TAX:</label>
+        <input type="number" id="TAX" name="TAX" step="any" value="296.0">
+
+        <label for="PTRATIO">PTRATIO:</label>
+        <input type="number" id="PTRATIO" name="PTRATIO" step="any" value="15.3">
+
+        <label for="B">B:</label>
+        <input type="number" id="B" name="B" step="any" value="396.90">
+
+        <label for="LSTAT">LSTAT:</label>
+        <input type="number" id="LSTAT" name="LSTAT" step="any" value="4.98">
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="response">
+        {{ prediction_text }}
+    </div>
+
+</body>
+</html>
